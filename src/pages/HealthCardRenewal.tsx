@@ -18,8 +18,8 @@ interface FormData {
 
 const steps = [
   { label: "Card Information", labelAr: "معلومات البطاقة" },
-  { label: "Payment Details", labelAr: "تفاصيل الدفع" },
   { label: "Submission", labelAr: "استكمال التقديم" },
+  { label: "Payment Details", labelAr: "تفاصيل الدفع" },
   { label: "Complete Process", labelAr: "إتمام العملية" },
 ];
 
