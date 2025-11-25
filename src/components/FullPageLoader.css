@@ -14,8 +14,8 @@
   
   /* Circular loader */
   .loader {
-    border: 8px solid #8d0000;
-    border-top: 8px solid #000000; /* black top for contrast */
+    border: 8px solid #a50101;
+    border-top: 8px solid #bebebe; /* black top for contrast */
     border-radius: 50%;
     width: 70px;
     height: 70px;

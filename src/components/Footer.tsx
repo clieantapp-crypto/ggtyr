@@ -27,9 +27,9 @@ export const Footer = ({ className }: FooterProps) => {
                     {t.nav.services}
                   </a>
                 </li>
-                <li><a href="/about" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{t.nav.about}</a></li>
-                <li><a href="/contact" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{t.footer.contact}</a></li>
-                <li><a href="/faq" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "ar" ? "الأسئلة الشائعة" : "FAQ"}</a></li>
+                <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{t.nav.about}</a></li>
+                <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{t.footer.contact}</a></li>
+                <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "ar" ? "الأسئلة الشائعة" : "FAQ"}</a></li>
               </ul>
             </div>
             <div className="min-w-0">
@@ -44,7 +44,7 @@ export const Footer = ({ className }: FooterProps) => {
               <h3 className="font-bold text-sm md:text-base mb-2 md:mb-3 truncate">{language === "en" ? "Resources" : "الموارد"}</h3>
               <ul className="space-y-1 md:space-y-1.5">
                 <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{t.nav.openData}</a></li>
-                <li><a href="/faq" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "en" ? "FAQ" : "الأسئلة الشائعة"}</a></li>
+                <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "en" ? "FAQ" : "الأسئلة الشائعة"}</a></li>
                 <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "en" ? "Publications" : "المنشورات"}</a></li>
                 <li><a href="/" className="text-xs md:text-sm text-primary-foreground/70 hover:text-accent transition-colors block truncate">{language === "en" ? "Media" : "الإعلام"}</a></li>
               </ul>
@@ -67,15 +67,15 @@ export const Footer = ({ className }: FooterProps) => {
                   : `© ${new Date().getFullYear()} دولة قطر. جميع الحقوق محفوظة.`}
               </p>
               <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm">
-                <a href="/privacy" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
+                <a href="/" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
                   {language === "en" ? "Privacy" : "الخصوصية"}
                 </a>
                 <span className="text-primary-foreground/40">•</span>
-                <a href="/terms" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
+                <a href="/" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
                   {language === "en" ? "Terms" : "الشروط"}
                 </a>
                 <span className="text-primary-foreground/40">•</span>
-                <a href="/accessibility" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
+                <a href="/" className="text-primary-foreground/60 hover:text-accent transition-colors whitespace-nowrap">
                   {language === "en" ? "Accessibility" : "سهولة الوصول"}
                 </a>
                 <span className="text-primary-foreground/40 hidden md:inline">•</span>
