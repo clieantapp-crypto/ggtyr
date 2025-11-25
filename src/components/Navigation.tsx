@@ -13,7 +13,7 @@ export const Navigation = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[#222222] backdrop-blur-lg border-b border-white/10">
+      <nav className="sticky top-0 z-50 bg-white backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             <div className="flex items-center gap-4 md:gap-12">
@@ -111,7 +111,7 @@ export const Navigation = () => {
               >
                 {language === "ar" ? "الأسئلة الشائعة" : "FAQ"}
               </a>
-              <Button className="w-full bg-white hover:bg-white/90 font-semibold text-[#222222] mt-4 sm:hidden">
+              <Button className="w-full bg-[] hover:bg-white/90 font-semibold text-[#222222] mt-4 sm:hidden">
                 {t.nav.login}
               </Button>
             </div>

@@ -8,7 +8,7 @@ export const Footer = ({ className }: FooterProps) => {
   const { language, t } = useLanguage();
   
   return (
-    <footer className={`bg-secondary text-primary-foreground py-6 md:py-8 border-t border-border/20 mt-8 md:mt-12 ${className || ''}`}>
+    <footer className={`bg-primary text-primary-foreground py-6 md:py-8 border-t border-border/20 mt-8 md:mt-12 ${className || ''}`}>
       <div className="container mx-auto px-4 md:px-6 max-w-full overflow-x-hidden">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-4 md:mb-6">
