@@ -36,14 +36,13 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 md:px-8 h-11 md:h-12 text-sm md:text-base group animate-fade-in w-full sm:w-auto"
-              onClick={() => window.location.href = '/health-card-renewal'}
+            <a 
+              className="bg-primary hover:bg-primary/90 text-white font-semibold p-2 flex justify-center rounded md:px-8 h-11 md:h-12 text-sm md:text-base group animate-fade-in w-full sm:w-auto"
+              href={'/health-card-renewal'}
             >
               <span className="truncate">{t.hero.exploreServices}</span>
               <ArrowRight className={`${language === "ar" ? "mr-2 rotate-180" : "ml-2"} h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform no-flip flex-shrink-0`} />
-            </Button>
+            </a>
             <Button 
               size="lg" 
               variant="outline" 
