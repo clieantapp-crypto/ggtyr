@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://hukoomi.gov.qa/</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hukoomi.gov.qa/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hukoomi.gov.qa/?lang=ar"/>
+  </url>
+
+  <!-- Health Card Renewal -->
+  <url>
+    <loc>https://hukoomi.gov.qa/health-card-renewal</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hukoomi.gov.qa/health-card-renewal?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hukoomi.gov.qa/health-card-renewal?lang=ar"/>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://hukoomi.gov.qa/privacy</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://hukoomi.gov.qa/terms</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Accessibility -->
+  <url>
+    <loc>https://hukoomi.gov.qa/accessibility</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://hukoomi.gov.qa/faq</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hukoomi.gov.qa/faq?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hukoomi.gov.qa/faq?lang=ar"/>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://hukoomi.gov.qa/about</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hukoomi.gov.qa/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hukoomi.gov.qa/about?lang=ar"/>
+  </url>
+
+  <!-- Contact Us -->
+  <url>
+    <loc>https://hukoomi.gov.qa/contact</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hukoomi.gov.qa/contact?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hukoomi.gov.qa/contact?lang=ar"/>
+  </url>
+
+</urlset>
