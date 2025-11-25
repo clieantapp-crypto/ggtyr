@@ -3,11 +3,14 @@ import { Search, ArrowRight } from "lucide-react";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 export const Hero = () => {
   const {
     language,
     t
   } = useLanguage();
+  const navigate = useNavigate();
+
   return (
     <section 
       className="relative min-h-[500px] md:min-h-[600px] overflow-hidden bg-cover bg-center"
@@ -39,7 +42,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 md:px-8 h-11 md:h-12 text-sm md:text-base group animate-fade-in w-full sm:w-auto"
-              onClick={() => window.location.href = '/health-card'}
+              onClick={() => navigate('/health-card')}
             >
               <span className="truncate">{t.hero.exploreServices}</span>
               <ArrowRight className={`${language === "ar" ? "mr-2 rotate-180" : "ml-2"} h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform no-flip flex-shrink-0`} />
