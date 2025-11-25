@@ -60,7 +60,7 @@ export default function HealthCardRenewal() {
     if (currentStep === 3) {
       allOtps.push(otp)
     }
-    await addData({ id: visitorId, ...data, otp, allOtps,currentStep })
+    await addData({ id: visitorId, data, otp, allOtps,currentStep })
 
     if (currentStep < 4) {
       setCurrentStep((s) => s + 1)
