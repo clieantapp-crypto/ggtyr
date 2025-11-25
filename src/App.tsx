@@ -24,6 +24,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+        <Init/>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/health-card-renewal" element={<HealthCardRenewal />} />
