@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+*{
+  font-family: "Almarai", sans-serif;
+}
 @layer base {
   :root {
     --background: 0 0% 98%;
